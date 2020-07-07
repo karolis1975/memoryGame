@@ -43,7 +43,7 @@ let disable = false;
 let time = 0;
 let unlocked = 0;
 let interval = null;
-let best = 0;
+let best = null;
 
 if (localStorage.getItem("best") != null) best = localStorage.getItem("best");
 
@@ -82,7 +82,7 @@ function clickedCard(e) {
   }
 }
 function finished() {
-  if (time < best) {
+  if (time < best || best == null) {
     best = time;
     localStorage.setItem("best", best);
   }
